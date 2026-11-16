@@ -101,7 +101,7 @@
                 <i class="fa-solid fa-shield-heart"></i>
                 <span>Care & Safety</span>
             </button>
-        <button class="nav-tab" data-tab="tab-library"><i class="fa-solid fa-book-medical"></i><span>Health library</span></button></nav></aside><button class="sidebar-scrim" id="sidebar-scrim" aria-label="Close navigation" hidden></button>
+        <button class="nav-tab" data-tab="tab-library"><i class="fa-solid fa-book-medical"></i><span>Health library</span></button><button class="nav-tab" data-tab="tab-demo-reminders"><i class="fa-solid fa-bell"></i><span>Reminders</span></button><button class="nav-tab" data-tab="tab-demo-activity"><i class="fa-solid fa-list-check"></i><span>Activity</span></button></nav></aside><button class="sidebar-scrim" id="sidebar-scrim" aria-label="Close navigation" hidden></button>
 
         <!-- Main Content Area -->
         <main class="app-content" id="main-content"><div class="workspace-eyebrow">A LITTLE CARE, EVERY DAY <span>● Your personal workspace</span></div><section id="tab-library" class="tab-panel"><div id="condition-detail"></div></section>
@@ -387,7 +387,8 @@
                 </div>
             </section>
 
-        </main>
+        <section id="tab-demo-reminders" class="tab-panel"><div class="card demo-card"><h2>Example reminder</h2><p>Move the fictional reminder to another time to see how it appears in the schedule.</p><form id="demoReminderForm"><label>Daily reminder time <input type="time" name="time" required></label><button class="btn btn-primary">Save time</button></form><p id="demoReminderStatus" role="status"></p></div><div class="card demo-card"><h2>Keeping track</h2><p>Open Daily Schedule and mark a reminder taken or pending. The Activity tab lists your sample changes by date.</p><p>Device notifications are available in a private installation of MediCare. The public demonstration stays in this browser.</p></div></section>
+<section id="tab-demo-activity" class="tab-panel"><div class="card demo-card"><h2>Example activity</h2><p id="demoActivitySummary"></p><div id="demoActivity"></div><button id="resetExample" class="btn btn-outline" type="button">Reset example activity</button></div></section></main>
     </div>
 
     <!-- Alert tones are generated locally, with no downloaded recording. -->
@@ -395,5 +396,5 @@
     <script src="medicine-safety.js"></script><script src="health-library.js"></script><script src="buyer-adapter.js"></script><script src="demo-setup.js"></script><script src="app.js"></script><script src="workspace.js"></script>
 
 
-</body>
+<script src="demo-panels.js" defer></script></body>
 </html>
