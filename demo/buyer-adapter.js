@@ -1,0 +1,13 @@
+(()=>{
+const id='medicare',keys=['medicare_medications_v9','medicare_active_diseases_v9','medicare_dose_logs'];
+const text=(v,n=10000)=>typeof v==='string'&&v.length<=n,safe=v=>text(v,100)&&/^[-a-zA-Z0-9_]+$/.test(v);
+function valid(v){
+ if(!v||!Array.isArray(v.medications)||v.medications.length>500||!Array.isArray(v.conditions)||v.conditions.length>300||!v.logs||typeof v.logs!=='object'||Array.isArray(v.logs))return false;
+ const ids=new Set();
+ if(!v.conditions.every(c=>c&&safe(c.id)&&!ids.has(c.id)&&(ids.add(c.id),true)&&text(c.label,300)&&typeof c.checked==='boolean'&&text(c.icon,80)&&/^[-a-zA-Z0-9_]*$/.test(c.icon)&&text(c.classTag,80)&&/^[-a-zA-Z0-9_]*$/.test(c.classTag)))return false;
+ ids.clear();if(!v.medications.every(m=>m&&safe(m.id)&&!ids.has(m.id)&&(ids.add(m.id),true)&&['name','dosage','condition','frequency','food','irelandStatus','notes','rxcui','ingredient'].every(k=>text(m[k]))&&safe(m.condition)&&Array.isArray(m.times)&&m.times.length<=24&&m.times.every(t=>typeof t==='string'&&/^([01]\d|2[0-3]):[0-5]\d$/.test(t))))return false;
+ return Object.keys(v.logs).length<=4000&&Object.entries(v.logs).every(([day,rows])=>/^\d{4}-\d{2}-\d{2}$/.test(day)&&rows&&typeof rows==='object'&&!Array.isArray(rows)&&Object.keys(rows).length<=12000&&Object.entries(rows).every(([key,status])=>/^[-a-zA-Z0-9_]+_([01]\d|2[0-3]):[0-5]\d$/.test(key)&&['taken','pending'].includes(status)));
+}
+window.BUYER_DATA_ADAPTER={id,valid,capture:()=>window.medicareData?window.medicareData.capture():{medications:[],conditions:[],logs:{}},restore:async value=>{if(!valid(value))throw Error('Invalid reminder backup. No records were replaced.');const before=keys.map(k=>localStorage.getItem(k));try{[value.medications,value.conditions,value.logs].forEach((v,i)=>localStorage.setItem(keys[i],JSON.stringify(v)));window.medicareData?.restore(value);}catch(e){before.forEach((v,i)=>v===null?localStorage.removeItem(keys[i]):localStorage.setItem(keys[i],v));throw e;}}};
+window.BUYER_EXAMPLE=async()=>{const value=BUYER_DATA_ADAPTER.capture();if(!value.medications.some(m=>m.id==='example-reminder'))value.medications.push({id:'example-reminder',name:'Example reminder — demonstration only',dosage:'Example only; not a medicine or prescribed dose',condition:'general',frequency:'1',food:'unknown',irelandStatus:'Example only',notes:'Delete this fictional reminder. Enter only the schedule prescribed for you.',rxcui:'',ingredient:'',times:['09:00']});await BUYER_DATA_ADAPTER.restore(value);};
+})();

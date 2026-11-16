@@ -1,0 +1,58 @@
+{
+  "headache": {
+    "label": "Headache",
+    "url": "https://www.nhs.uk/symptoms/headaches/"
+  },
+  "weight_loss": {
+    "label": "Fat loss & healthy weight",
+    "url": "https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/tips-to-help-you-lose-weight/"
+  },
+  "diabetes": {
+    "label": "Type 2 diabetes",
+    "url": "https://www.nhs.uk/conditions/type-2-diabetes/treatment/"
+  },
+  "hypertension": {
+    "label": "High blood pressure",
+    "url": "https://www.nhs.uk/conditions/high-blood-pressure/"
+  },
+  "pneumonia": {
+    "label": "Pneumonia",
+    "url": "https://www.nhs.uk/conditions/pneumonia/"
+  },
+  "asthma": {
+    "label": "Asthma",
+    "url": "https://www.nhs.uk/conditions/asthma/"
+  },
+  "back_pain": {
+    "label": "Back pain",
+    "url": "https://www.nhs.uk/conditions/back-pain/"
+  },
+  "cholesterol": {
+    "label": "High cholesterol",
+    "url": "https://www.nhs.uk/conditions/high-cholesterol/how-to-lower-your-cholesterol/"
+  },
+  "fatty_liver": {
+    "label": "Fatty liver (MASLD)",
+    "url": "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/"
+  },
+  "hypotension": {
+    "label": "Low blood pressure",
+    "url": "https://www.nhs.uk/conditions/low-blood-pressure-hypotension/"
+  },
+  "anemia": {
+    "label": "Iron deficiency anaemia",
+    "url": "https://www.nhs.uk/conditions/iron-deficiency-anaemia/"
+  },
+  "acid_reflux": {
+    "label": "Heartburn & acid reflux",
+    "url": "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/"
+  },
+  "joint_arthritis": {
+    "label": "Arthritis",
+    "url": "https://www.nhs.uk/conditions/arthritis/"
+  },
+  "anxiety_stress": {
+    "label": "Anxiety & stress",
+    "url": "https://www.nhs.uk/mental-health/conditions/generalised-anxiety-disorder-gad/"
+  }
+}

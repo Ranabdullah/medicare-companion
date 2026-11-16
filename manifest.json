@@ -1,0 +1,16 @@
+{
+  "name": "Medicare — Reminder Planner",
+  "short_name": "MediCare",
+  "description": "Your prescribed schedule, personal reminders and optional local backups.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
